@@ -3,14 +3,13 @@
 , alsa-ucm-conf }:
 
 (alsa-ucm-conf.overrideAttrs (oldAttrs: rec {
-  version = "6";
 
   src_asahi = fetchFromGitHub {
     # tracking: https://src.fedoraproject.org/rpms/alsa-ucm-asahi
     owner = "AsahiLinux";
     repo = "alsa-ucm-conf-asahi";
-    rev = "v${version}";
-    hash = "sha256-8f4817b76720d86f1894ff6755d26b46a8f8e37868434bd6251e2880ce7a994d";
+    rev = "aac81e891058e72a4ff53fde02f03b0bcadba2fc";
+    hash = "sha256-1a34559da03prrxnk8wjx5rzq057xqys3i2b3mdybks9i038cc65";
   };
   
   postInstall = oldAttrs.postInstall or "" + ''
