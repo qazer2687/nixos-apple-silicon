@@ -10,7 +10,7 @@
     owner = "AsahiLinux";
     repo = "alsa-ucm-conf-asahi";
     rev = "v${version}";
-    hash = "0kcrgb780a0y4pb4nhv8g3izia26dg95arzzjhc6zn10cyvifj4g";
+    hash = "sha256-0kcrgb780a0y4pb4nhv8g3izia26dg95arzzjhc6zn10cyvifj4g";
   };
   
   postInstall = oldAttrs.postInstall or "" + ''
