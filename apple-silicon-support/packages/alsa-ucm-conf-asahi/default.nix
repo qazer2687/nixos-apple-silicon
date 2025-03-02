@@ -1,21 +1,19 @@
-{ stdenv
+{ lib
 , fetchFromGitHub
-}:
+, alsa-ucm-conf }:
 
-stdenv.mkDerivation rec {
-  name = "alsa-ucm-conf-asahi";
+(alsa-ucm-conf.overrideAttrs (oldAttrs: rec {
   version = "5";
 
-  src = fetchFromGitHub {
+  src_asahi = fetchFromGitHub {
     # tracking: https://src.fedoraproject.org/rpms/alsa-ucm-asahi
     owner = "AsahiLinux";
     repo = "alsa-ucm-conf-asahi";
-    rev = version;
+    rev = "v${version}";
     hash = "sha256-daUNz5oUrPfSMO0Tqq/WbtiLHMOtPeQQlI+juGrhTxw=";
   };
-
-  postInstall = ''
-    mkdir -p $out/share/alsa
-    cp -r ${src}/ucm2 $out/share/alsa
+  
+  postInstall = oldAttrs.postInstall or "" + ''
+    cp -r ${src_asahi}/ucm2 $out/share/alsa
   '';
-}
+}))
