@@ -5,7 +5,6 @@
 (alsa-ucm-conf.overrideAttrs (oldAttrs: rec {
 
   src_asahi = fetchFromGitHub {
-    # tracking: https://src.fedoraproject.org/rpms/alsa-ucm-asahi
     owner = "AsahiLinux";
     repo = "alsa-ucm-conf-asahi";
     rev = "aac81e891058e72a4ff53fde02f03b0bcadba2fc";
